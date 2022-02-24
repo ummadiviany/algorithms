@@ -1,4 +1,5 @@
 from heapq import heapify, heappush, heappop
+from platform import node
 
 class Node:
     def __init__(self,name) -> None:
@@ -116,6 +117,30 @@ if __name__ == "__main__":
     node_e.add_child(node_f,2)  
     node_f.add_child(node_c,1)
 
+    # node_delhi = Node('Delhi')
+    # node_mumbai = Node('Mumbai')
+    # node_agra = Node('Agra')
+    # node_kolkota = Node('Kolkata')
+    # node_chennai = Node('Chennai')
+    # node_nagpur = Node('Nagpur')
+
+    # node_dict = {
+    #     'node_Delhi':node_delhi,
+    #     'node_Mumbai':node_mumbai,
+    #     'node_Agra':node_agra,
+    #     'node_Kolkata':node_kolkota,
+    #     'node_Chennai':node_chennai,
+    #     'node_Nagpur':node_nagpur
+    # }
+
+    # node_delhi.add_child(node_mumbai,17)
+    # node_delhi.add_child(node_agra,2)
+    # node_delhi.add_child(node_kolkota,17)
+    # node_mumbai.add_child(node_chennai,22)
+    # node_kolkota.add_child(node_chennai,28)
+    # node_agra.add_child(node_nagpur,11.5)
+    # node_nagpur.add_child(node_chennai,17)
+
     # Calling Dijkstra Algorithm
     user_inp = input("Do you want to enter start and end node? (y/n) : ").lower()
     if  user_inp == 'y':
@@ -123,11 +148,10 @@ if __name__ == "__main__":
         end_node = input("Enter the ending node (options : a/b/c/d/e/f) : ")
 
     else:
-        start_node = 'a'
-        end_node = 'f'
-        print("Finding shortest path between a and f")
+        start_node = 'Delhi'
+        end_node = 'Chennai'
     
-    
+    print(f"Finding shortest path between {start_node} and {end_node}")
     start_node = node_dict[f"node_{start_node}"]
     end_node = node_dict[f"node_{end_node}"]
     shortest_path,short_length = dijkstra(start_node,end_node)
