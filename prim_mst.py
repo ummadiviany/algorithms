@@ -13,7 +13,6 @@ def prim(G):
     for v in G:
         heappush(H, (cost[v], v))
 
-    
     while H:
         print(H)
         _, v = heappop(H)
