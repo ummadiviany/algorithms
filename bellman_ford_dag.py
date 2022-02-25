@@ -2,6 +2,9 @@ from math import inf
 from collections import OrderedDict
 
 def toplogical_sort(v,stack,visited):
+    """
+    Topological sort for given graph. Also called as Linearize
+    """
     visited[v] = True
     for i in G[v]:
         if not visited[i]:

@@ -1,6 +1,7 @@
 from collections import OrderedDict
 
 def explore(G,visited,v,pre_visit_nums,post_visit_nums,ccnums,clock,cnum):
+
     """
     Finding all nodes reachable from v
     """
@@ -25,6 +26,9 @@ def explore(G,visited,v,pre_visit_nums,post_visit_nums,ccnums,clock,cnum):
     
 
 def dfs(G):
+    """
+    Depth-first search for previsit, postvisit, and connected component numbers
+    """
 
     visited = {v:False for v in G}
     pre_visit_nums = {v:None for v in G}
@@ -40,7 +44,7 @@ def dfs(G):
             clock = explore(G,visited,v,pre_visit_nums,post_visit_nums,ccnums,clock,cnum)
         
 
-
+    return pre_visit_nums,post_visit_nums,ccnums
 
     
 if __name__ == "__main__":
@@ -60,5 +64,19 @@ if __name__ == "__main__":
     'd' : {'c', 'h'},
     'l' : {'h'},
     }
+
+    G1 = {
+        'a' : {'b', 'c', 'f'},
+        'b' : {'e'},
+        'c' : {'d'},
+        'd' : {'a','h'},
+        'e' : {'f','g','h'},
+        'f' : {'b','g'},
+        'g' : {},
+        'h' : {'g'}
+    }
     
-    dfs(OrderedDict(G))
+    pre_visit_nums,post_visit_nums,ccnums = dfs(OrderedDict(G1))
+    print(f"Pre  Visited              : {pre_visit_nums}")
+    print(f"Post Visited              : {post_visit_nums}")
+    print(f"ConnectedComponents       : {ccnums}")
