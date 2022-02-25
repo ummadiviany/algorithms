@@ -1,31 +1,28 @@
 from heapq import heappush, heappop, heapify
 from math import inf
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
+from heapdict import heapdict
 
 def prim(G):
     cost = {v:inf for v in G}
     prev = {v:None for v in G}
+    selected = {v:False for v in G}
     
     cost['A'] = 0
+    H = heapdict()
 
-    H = []
-    heapify(H)
     for v in G:
-        heappush(H, (cost[v], v))
+        H[v] = cost[v]
 
     while H:
-        print(H)
-        _, v = heappop(H)
-        print(v)
-        for z in G[v].keys():
-            if cost[z] > G[v][z]:
+        v = H.popitem()[0]
+        for z in G[v]:
+            if cost[z] > G[v][z] and selected[z] == False:
                 cost[z] = G[v][z]
                 prev[z] = v
-                heappush(H, (cost[z], z))
+                H[z] = cost[z]
 
-        print("Cost:", cost)
-        print("Prev:", prev)
-        print()
+        selected[v] = True
     return cost, prev
 
 
@@ -44,15 +41,10 @@ if __name__ == '__main__':
     cost, prev= prim(G)
 
     
-    print("Distance:", cost)
-    print("Previous:", prev)
+    # print("Distance:", cost)
+    # print("Previous:", prev)
     
-    # print("Shortest Path length:", dist[tgt])
-    # short_path = []
-    # while True:
-    #     short_path.append(tgt)
-    #     tgt = prev[tgt]
-    #     if tgt is None:
-    #         break
-    # print("Shortest Path:", end=' ')
-    # print(*short_path[::-1], sep=' -> ')
+    print("Total MST cost:", sum(cost.values()))
+    print("Minimum Spanning Tree:")
+    for v in G:
+        print(prev[v], '<--->', v)

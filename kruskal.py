@@ -1,12 +1,21 @@
 from collections import OrderedDict, defaultdict
 
+def find_path_compression(v, parent):
+    """
+    Find the root of the vertex
+    using path compression technique
+    """
+    if v != parent[v]:
+        parent[v] = find_path_compression(parent[v], parent)
+    return parent[v]
+
 def find(v, parent):
-        """
-        Find the root of the tree
-        """
-        if parent[v] is None:
-            return v
-        return find(parent[v], parent)
+    """
+    Find the root of the tree
+    """
+    if parent[v] is None:
+        return v
+    return find(parent[v], parent)
 
 def union(x, y, parent, rank):
     """
