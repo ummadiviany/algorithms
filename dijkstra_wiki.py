@@ -13,7 +13,11 @@ def dijkstra(G,src,tgt):
         heappush(Q,(dist[v],v))
 
     while Q:
+        print("Distance:", dist)
+        print("Previous:", prev)
+        print()
         u = heappop(Q)
+        print("Current node:", u)
         u = u[1]
         if u == tgt:
             break
@@ -29,18 +33,27 @@ def dijkstra(G,src,tgt):
 
 
 if __name__ == '__main__':
+    # G = {
+    #     'A': {'B': 2, 'C': 3},
+    #     'B': {'A': 2, 'C': 1, 'D': 3},
+    #     'C': {'A': 3, 'B': 1, 'D': 2, 'E': 4},
+    #     'D': {'B': 3, 'C': 2, 'E': 2, 'F': 4},
+    #     'E': {'C': 4, 'D': 2, 'F': 3, 'G': 2},
+    #     'F': {'D': 4, 'E': 3, 'G': 6},
+    #     'G': {'E': 2, 'F': 6}
+    # }
     G = {
-        'A': {'B': 2, 'C': 3},
-        'B': {'A': 2, 'C': 1, 'D': 3},
-        'C': {'A': 3, 'B': 1, 'D': 2, 'E': 4},
-        'D': {'B': 3, 'C': 2, 'E': 2, 'F': 4},
-        'E': {'C': 4, 'D': 2, 'F': 3, 'G': 2},
-        'F': {'D': 4, 'E': 3, 'G': 6},
-        'G': {'E': 2, 'F': 6}
+        'ABC' : {'D':3, 'E':2,'F':1},
+        'D' : {'G':1,'H':7},
+        'E' : {'G':7,'H':2},
+        'F' : {'G':2,'H':1},
+        'G' : {'I':2},
+        'H' : {'I':8},
+        'I' : {}
     }
     G = OrderedDict(G)
-    src = 'A'
-    tgt = 'G'
+    src = 'ABC'
+    tgt = 'I'
     
     dist, prev = dijkstra(G, src, tgt)
 
