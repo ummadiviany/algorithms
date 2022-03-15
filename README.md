@@ -8,3 +8,7 @@ This repository holds the all the coding assignments and term project for my cou
 ## [Assignment 2 : Graphs and Dijkstra](Assignment2)
         1. Weighted graph network
         2. Dijkstra algorithm
+
+## [Assignment 3 : Travelling Salesman Problem](Assignment3)
+        1. Travelling Salesman Problem for incomplete graph
+        2. Path and cost of minimum path
