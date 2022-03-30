@@ -19,4 +19,5 @@ This repository holds the all the coding assignments and term project for my cou
 ## [Solitary Assignment](Solitary_Assignment)
         1. Divide and Conquer
         2. Grpahs
-        3. Dynamic Programming
+        3. Greedy algorithms
+        4. Dynamic Programming
