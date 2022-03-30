@@ -12,3 +12,11 @@ This repository holds the all the coding assignments and term project for my cou
 ## [Assignment 3 : Travelling Salesman Problem](Assignment3)
         1. Travelling Salesman Problem for incomplete graph
         2. Path and cost of minimum path
+
+## [Assignment 4 : Revised Simplex Algorithm](Assignment4)
+        1. Simplex Algorithm
+        2. Revised Simplex Algorithm
+## [Solitary Assignment](Solitary_Assignment)
+        1. Divide and Conquer
+        2. Grpahs
+        3. Dynamic Programming

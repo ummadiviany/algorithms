@@ -11,11 +11,13 @@ def dijkstra(G,src,tgt):
     heapify(Q)
     for v in G:
         heappush(Q,(dist[v],v))
-
+    i=0
     while Q:
+        print("Iteration:",i)
         print("Distance:", dist)
         print("Previous:", prev)
         print()
+        i += 1
         u = heappop(Q)
         print("Current node:", u)
         u = u[1]
@@ -68,14 +70,14 @@ if __name__ == '__main__':
     dist, prev = dijkstra(G, src, tgt)
 
     
-    # print("Distance:", dist)
-    # print("Previous:", prev)
-    print("Shortest Path length:", dist[tgt])
-    short_path = []
-    while True:
-        short_path.append(tgt)
-        tgt = prev[tgt]
-        if tgt is None:
-            break
-    print("Shortest Path:", end=' ')
-    print(*short_path[::-1], sep=' -> ')
+    print("Distance:", dist)
+    print("Previous:", prev)
+    # print("Shortest Path length:", dist[tgt])
+    # short_path = []
+    # while True:
+    #     short_path.append(tgt)
+    #     tgt = prev[tgt]
+    #     if tgt is None:
+    #         break
+    # print("Shortest Path:", end=' ')
+    # print(*short_path[::-1], sep=' -> ')
