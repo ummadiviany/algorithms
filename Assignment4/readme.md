@@ -13,6 +13,7 @@ python revised_simplex.py
 3. Also to run simplex algorithm run the following command
 ```bash
 python simplex_tabular.py
+```
 ## Tasks
     1. Implementing the revised simplex algorithm
     2. Find the maximum value of the objective function for the given input
